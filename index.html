@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thein Mwae Than Tha | Portfolio</title>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #ece7e1;
+            --panel: #f8f3ed;
+            --panel-2: #e5dcd3;
+            --line: rgba(62, 52, 44, 0.10);
+            --line-strong: rgba(62, 52, 44, 0.22);
+            --text: #2f2925;
+            --muted: #746b63;
+            --red: #b9855c;
+            --blue: #7f8f8e;
+            --white: #2f2925;
+            --soft-green: #b9c6a3;
+            --rose: #d9aaa3;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background:
+                radial-gradient(circle at 78% 18%, rgba(217, 170, 163, 0.20), transparent 28%),
+                radial-gradient(circle at 18% 82%, rgba(185, 198, 163, 0.18), transparent 28%),
+                linear-gradient(rgba(62, 52, 44, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(62, 52, 44, 0.035) 1px, transparent 1px),
+                var(--bg);
+            background-size: 40px 40px;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        section {
+            padding: 90px 7%;
+            border-bottom: 1px solid var(--line);
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.4rem);
+            margin-bottom: 18px;
+            letter-spacing: -1px;
+        }
+
+        p {
+            color: var(--muted);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .label {
+            font-family: "JetBrains Mono", monospace;
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.75rem;
+            margin-bottom: 14px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(236, 231, 225, 0.84);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--line);
+            z-index: 999;
+        }
+
+        .logo {
+            font-family: "JetBrains Mono", monospace;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .logo span {
+            color: var(--red);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+
+        .nav-links a:hover {
+            color: var(--red);
+        }
+
+        .hero {
+            min-height: 100vh;
+            padding-top: 130px;
+            display: grid;
+            grid-template-columns: 1fr 0.9fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6.4vw, 5.6rem);
+            margin-bottom: 18px;
+            max-width: 760px;
+        }
+
+        .hero h1 span {
+            color: var(--red);
+        }
+
+        .hero h3 {
+            color: var(--blue);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 1rem;
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+
+        .hero p {
+            max-width: 650px;
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 20px;
+            border: 1px solid var(--line-strong);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.82rem;
+            transition: 0.25s ease;
+        }
+
+        .btn-primary {
+            background: var(--red);
+            border-color: var(--red);
+            color: #111827;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--red);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--red);
+            color: var(--red);
+        }
+
+        .tech-visual {
+            min-height: 520px;
+            border: 1px solid var(--line-strong);
+            background:
+                linear-gradient(135deg, rgba(185, 198, 163, 0.22), transparent 38%),
+                linear-gradient(315deg, rgba(217, 170, 163, 0.20), transparent 38%),
+                #ddd3ca;
+            position: relative;
+            padding: 24px;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+        }
+
+        .tech-visual::before {
+            content: "";
+            position: absolute;
+            inset: 24px;
+            border: 1px dashed rgba(62, 52, 44, 0.18);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 1;
+            position: relative;
+            opacity: 0.96;
+            filter:
+                brightness(0.96) contrast(1.02) saturate(0.92);
+            transform: scale(1.02);
+        }
+
+        .tech-visual::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(236, 231, 225, 0.18), transparent 35%, rgba(236, 231, 225, 0.20)),
+                linear-gradient(0deg, rgba(47, 41, 37, 0.30), transparent 45%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            background: rgba(255, 250, 244, 0.70);
+            border: 1px solid rgba(62, 52, 44, 0.14);
+            padding: 10px 14px;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.72rem;
+            z-index: 3;
+            backdrop-filter: blur(8px);
+        }
+
+        .hero-overlay span {
+            display: block;
+            color: var(--blue);
+            margin-bottom: 4px;
+            font-size: 0.62rem;
+        }
+
+        .top-left {
+            top: 24px;
+            left: 24px;
+        }
+
+        .top-right {
+            top: 24px;
+            right: 24px;
+        }
+
+        .bottom-left {
+            bottom: 24px;
+            left: 24px;
+        }
+
+        .bottom-right {
+            bottom: 24px;
+            right: 24px;
+        }
+
+        .spec-strip {
+            margin-top: 32px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1px solid var(--line);
+        }
+
+        .spec {
+            padding: 18px;
+            border-right: 1px solid var(--line);
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        .spec:last-child {
+            border-right: none;
+        }
+
+        .spec span {
+            display: block;
+            color: var(--muted);
+            font-size: 0.7rem;
+        }
+
+        .spec strong {
+            color: var(--blue);
+            font-size: 0.82rem;
+            display: block;
+            margin-top: 12px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .about-grid,
+        .case-layout,
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 36px;
+            align-items: start;
+        }
+
+        .panel {
+            background: rgba(255, 250, 244, 0.72);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--line);
+            padding: 28px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px;
+            margin-top: 34px;
+        }
+
+        .skill-card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            padding: 22px;
+            transition: 0.25s ease;
+        }
+
+        .skill-card:hover {
+            border-color: var(--red);
+            transform: translateY(-4px);
+        }
+
+        .skill-card h3 {
+            color: var(--white);
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+        }
+
+        .skill-card ul {
+            list-style: none;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        .skill-card li {
+            margin-bottom: 9px;
+            padding-left: 12px;
+            position: relative;
+        }
+
+        .skill-card li::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: var(--red);
+        }
+
+        .project-case {
+            padding: 0;
+        }
+
+        .case-header {
+            padding: 80px 7% 40px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .case-layout {
+            padding: 50px 7% 80px;
+            grid-template-columns: 320px 1fr;
+        }
+
+        .sticky-spec {
+            position: sticky;
+            top: 100px;
+            background: #f1ebe4;
+            border: 1px solid var(--line-strong);
+            padding: 22px;
+        }
+
+        .sticky-spec h3 {
+            color: var(--blue);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.9rem;
+            margin-bottom: 18px;
+        }
+
+        .spec-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .spec-row {
+            border-top: 1px solid var(--line);
+            padding-top: 12px;
+        }
+
+        .spec-row span {
+            display: block;
+            color: var(--muted);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+        }
+
+        .spec-row strong {
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+        .case-content {
+            display: grid;
+            gap: 22px;
+        }
+
+        .wide-visual {
+            height: 420px;
+            min-height: 420px;
+            max-height: 420px;
+            border: 1px dashed var(--line-strong);
+            background:
+                linear-gradient(135deg,
+                    rgba(138, 164, 191, 0.06),
+                    transparent),
+                var(--panel);
+
+            overflow: hidden;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0;
+        }
+
+        .image-visual {
+            padding: 0;
+            overflow: hidden;
+            background: #e6ddd4;
+        }
+
+        .image-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 18px;
+            background: #f3eee8;
+        }
+
+        .deep-grid,
+        .contribution-grid,
+        .protocol-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .deep-card,
+        .contribution-card,
+        .protocol {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            padding: 22px;
+            min-height: 180px;
+        }
+
+        .deep-card h3 {
+            color: var(--red);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .contribution-card {
+            background: rgba(255, 250, 244, 0.72);
+            border: 1px solid var(--line);
+            padding: 26px;
+            min-height: 260px;
+        }
+
+        .card-number {
+            font-family: "JetBrains Mono", monospace;
+            color: var(--red);
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+        }
+
+        .contribution-card h3 {
+            color: var(--blue);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 1rem;
+            margin: 14px 0 18px;
+        }
+
+        .contribution-card ul {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .contribution-card li {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .contribution-card li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--red);
+        }
+
+        .contribution-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+
+            align-items: stretch;
+
+            margin-top: 18px;
+        }
+
+        .flow-row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        .flow-node {
+            border: 1px solid var(--line);
+            background: #f1ebe4;
+            padding: 16px;
+            min-height: 90px;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.7rem;
+            color: var(--white);
+            position: relative;
+        }
+
+        .flow-node::after {
+            content: ">";
+            position: absolute;
+            right: -10px;
+            color: var(--blue);
+        }
+
+        .flow-node:last-child::after {
+            display: none;
+        }
+
+        .iteration-grid,
+        .artifact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .image-slot {
+            min-height: 230px;
+            border: 1px dashed var(--line-strong);
+            background: #f1ebe4;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            padding: 20px;
+            color: var(--muted);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.78rem;
+        }
+
+        .image-slot strong {
+            color: var(--white);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .image-slot-render {
+            position: relative;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .image-slot-render img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slot-label {
+            color: #fffaf4;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.88));
+            padding: 18px;
+            text-align: left;
+        }
+
+        .slot-label strong {
+            color: #fffaf4;
+        }
+
+        .dashboard {
+            border: 1px solid var(--line-strong);
+            background: #f1ebe4;
+            padding: 22px;
+        }
+
+        .dashboard-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 18px;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.78rem;
+            color: var(--blue);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .metric {
+            border: 1px solid var(--line);
+            padding: 18px;
+            background: var(--panel);
+        }
+
+        .metric span {
+            color: var(--muted);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.7rem;
+        }
+
+        .metric strong {
+            display: block;
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-top: 8px;
+        }
+
+        .metric small {
+            color: var(--red);
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        .artifact-grid {
+            grid-template-columns: repeat(4, 1fr);
+            margin-top: 34px;
+        }
+
+        .artifact {
+            border: 1px solid var(--line);
+            background: var(--panel);
+            padding: 22px;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .artifact h3 {
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        .artifact span {
+            color: var(--blue);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.72rem;
+        }
+
+        .contact-card {
+            border: 1px solid var(--line-strong);
+            background: var(--panel);
+            padding: 34px;
+        }
+
+        .contact-buttons {
+            margin-top: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        footer {
+            padding: 28px 7%;
+            color: var(--muted);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.75rem;
+            text-align: center;
+        }
+
+        @media (max-width: 1050px) {
+
+            .hero,
+            .about-grid,
+            .case-layout,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid,
+            .deep-grid,
+            .iteration-grid,
+            .protocol-grid,
+            .dashboard-grid,
+            .artifact-grid,
+            .spec-strip,
+            .contribution-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .sticky-spec {
+                position: relative;
+                top: 0;
+            }
+        }
+
+        .logic-flow {
+            max-width: 620px;
+            margin: 20px auto 0;
+            display: grid;
+            justify-items: center;
+            gap: 14px;
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        .logic-node {
+            position: relative;
+            min-width: 230px;
+            padding: 12px 22px;
+            text-align: center;
+            border: 3px solid var(--line-strong);
+            border-radius: 999px;
+            background: rgba(255, 250, 244, 0.88);
+            color: var(--text);
+            font-weight: 700;
+            font-size: 0.78rem;
+        }
+
+        .logic-node::after {
+            content: "↓";
+            position: absolute;
+            left: 50%;
+            bottom: -24px;
+            transform: translateX(-50%);
+            color: #c94538;
+            font-size: 1.2rem;
+        }
+
+        .logic-node:last-child::after {
+            display: none;
+        }
+
+        .logic-split {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            position: relative;
+        }
+
+        .logic-split::after {
+            content: "↓";
+            position: absolute;
+            left: 50%;
+            bottom: -25px;
+            transform: translateX(-50%);
+            color: #c94538;
+            font-size: 1.2rem;
+        }
+
+        .logic-split .logic-node::after {
+            display: none;
+        }
+
+        .start {
+            border-color: #c94538;
+        }
+
+        .forward {
+            border-color: #19b85a;
+        }
+
+        .stop {
+            border-color: #d14a3f;
+        }
+
+        .limit {
+            border-color: #f25ab7;
+        }
+
+        .merge {
+            border-color: #d14a3f;
+        }
+
+        .reverse {
+            border-color: #ff914d;
+        }
+
+        .kill {
+            border-color: #3366cc;
+        }
+
+        .base {
+            border-color: #bd68df;
+        }
+
+        @media (max-width: 650px) {
+            .logic-split {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .logic-node {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 650px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            section {
+                padding: 70px 6%;
+            }
+
+            .case-header {
+                padding: 70px 6% 35px;
+            }
+
+            .case-layout {
+                padding: 40px 6% 70px;
+            }
+
+            .skills-grid,
+            .deep-grid,
+            .iteration-grid,
+            .protocol-grid,
+            .dashboard-grid,
+            .artifact-grid,
+            .spec-strip,
+            .contribution-grid,
+            .flow-row {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-node::after {
+                display: none;
+            }
+
+            .hero-overlay {
+                position: static;
+                margin: 6px;
+            }
+
+            .tech-visual {
+                display: flex;
+                flex-direction: column;
+                min-height: 520px;
+            }
+        }
+
+
+        /* =========================
+           FIXED GALLERY CARD LAYOUT
+        ========================= */
+
+        .project2-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            align-items: start;
+
+            max-width: 980px;
+        }
+
+        .project2-gallery .image-slot {
+            position: relative;
+
+            height: 300px;
+            min-height: 300px;
+            max-height: 300px;
+
+            border: 1px dashed var(--line-strong);
+            background: #f1ebe4;
+
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .project3-gallery {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 20px;
+
+            max-width: 1050px;
+
+            margin-top: 14px;
+        }
+
+        .project3-gallery .image-slot {
+            height: 360px;
+
+            min-height: 360px;
+            max-height: 360px;
+        }
+
+        .iteration-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            align-items: stretch;
+        }
+
+        .image-slot {
+            position: relative;
+            height: 420px;
+            min-height: 420px;
+            max-height: 420px;
+            border: 1px dashed var(--line-strong);
+            background: #f1ebe4;
+            overflow: hidden;
+            padding: 0;
+            display: block;
+            text-align: left;
+        }
+
+        .image-slot-render img,
+        .image-slot-render video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .slot-label {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 18px;
+            color: #fffaf4;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.88));
+            z-index: 3;
+            text-align: left;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.74rem;
+            line-height: 1.5;
+        }
+
+        .slot-label strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #fffaf4;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.9rem;
+        }
+
+        .feature-image {
+            position: relative;
+
+            width: 100%;
+            height: 520px;
+
+            overflow: hidden;
+
+            border: 1px dashed var(--line-strong);
+
+            background: #f1ebe4;
+
+            margin-top: 18px;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            object-position: center 40%;
+
+            display: block;
+        }
+
+        .feature-caption {
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            padding: 26px;
+
+            color: #fffaf4;
+
+            background:
+                linear-gradient(transparent,
+                    rgba(0, 0, 0, 0.88));
+
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.78rem;
+            line-height: 1.6;
+        }
+
+        .feature-caption strong {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 1rem;
+        }
+
+        .certificate-card {
+            height: 360px;
+            min-height: 360px;
+            max-height: 360px;
+        }
+
+        .certificate-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            background: #fffaf4;
+            padding: 28px;
+        }
+
+
+
+        @media (max-width: 650px) {
+            .iteration-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .image-slot {
+                height: 360px;
+                min-height: 360px;
+                max-height: 360px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">THEIN MWAE THAN THA<span>_</span></div>
+        <div class="nav-links">
+            <a href="#home">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#skills">SKILLS</a>
+            <a href="#liftoff">FEATURED PROJECTS</a>
+            <a href="#artifacts">ARTIFACTS</a>
+            <a href="#contact">CONTACT</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div>
+            <p class="label">SUTD EPD Student / Computer Engineering Background</p>
+            <h1>Thein Mwae Than Tha</h1>
+            <p>
+                Engineering Product Development (EPD) student at SUTD with a Computer Engineering
+                background from Singapore Polytechnic. I build hardware-focused projects involving
+                analog control systems, embedded electronics, actuator mechanisms, and industrial IoT workflows.
+            </p>
+
+            <div class="btn-row">
+                <a href="#liftoff" class="btn btn-primary">VIEW ENGINEERING PROJECTS</a>
+                <a href="Resume.pdf" class="btn btn-primary" target="_blank">PDF RESUME</a>
+            </div>
+
+            <div class="spec-strip">
+                <div class="spec"><span>EDUCATION</span><strong>SUTD — Engineering Product Development
+                        (EPD)</strong><strong>Singapore Polytechnic — Computer Engineering</strong></div>
+                <div class="spec"><span>INTERESTS</span><strong>Embedded + Industrial IoT</strong></div>
+                <div class="spec"><span>SPECIALIZATION</span><strong>Hardware Prototyping + IoT Systems</strong></div>
+                <div class="spec"><span>PROJECTS</span><strong>Assistive + Smart Systems</strong></div>
+            </div>
+        </div>
+
+        <div class="tech-visual">
+            <img src="images/profile.jpg" alt="Portrait of Thein Mwae Than Tha" class="hero-photo">
+
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-grid">
+            <div>
+                <p class="label">Profile</p>
+                <h2>About Me</h2>
+            </div>
+
+            <div class="panel">
+                <p>
+                    I model, integrate, debug, and validate engineering systems that combine mechanical structures,
+                    electronics, sensors, control logic, and connected dashboards. My project experience spans
+                    electromechanical lift assistance, actuator control, MOSFET switching, Industrial IoT monitoring,
+                    and communication protocol integration.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <p class="label">Technical Capability Matrix</p>
+        <h2>Skillset </h2>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Power & Drive Electronics</h3>
+                <ul>
+                    <li>MOSFET switching</li>
+                    <li>H-bridge motor drive</li>
+                    <li>555 timer PWM</li>
+                    <li>Linear actuator wiring</li>
+                    <li>Safe operating limits</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>Analog Control Logic</h3>
+                <ul>
+                    <li>Comparator logic</li>
+                    <li>PWM generation</li>
+                    <li>Threshold tuning</li>
+                    <li>Force sensor input</li>
+                    <li>Empirical testing</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>Industrial Communication</h3>
+                <ul>
+                    <li>LoRaWAN</li>
+                    <li>Modbus RTU</li>
+                    <li>MQTT messaging</li>
+                    <li>Sensor networks</li>
+                    <li>Pump automation</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>CAD & Mechatronics</h3>
+                <ul>
+                    <li>Scissor linkages</li>
+                    <li>Mechanism packaging</li>
+                    <li>CAD iteration</li>
+                    <li>Prototype fabrication</li>
+                    <li>Assembly validation</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>Testing & Analysis</h3>
+                <ul>
+                    <li>Failure debugging</li>
+                    <li>Load testing</li>
+                    <li>Thermal checks</li>
+                    <li>Testing logs</li>
+                    <li>Engineering documentation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-case" id="liftoff">
+        <div class="case-header">
+            <p class="label">Featured Project 01 / Electromechanical System</p>
+            <h2>LIFTOFF — Smart Lift-Assist Cushion System</h2>
+            <p>
+                Assistive mobility prototype addressing sarcopenia-related sit-to-stand challenges through
+                actuator-driven mechanical assistance, analog PWM control, H-bridge driving, MOSFET switching,
+                and physical prototype testing.
+            </p>
+        </div>
+
+        <div class="case-layout">
+            <aside class="sticky-spec">
+                <h3>SYSTEM ARCHITECTURE</h3>
+                <div class="spec-list">
+                    <div class="spec-row"><span>Actuation</span><strong>Linear Actuator</strong></div>
+                    <div class="spec-row"><span>Mechanism</span><strong>Scissor Linkage</strong></div>
+                    <div class="spec-row"><span>PWM Source</span><strong>555 Timer</strong></div>
+                    <div class="spec-row"><span>Logic Layer</span><strong>Analog Comparator</strong></div>
+                    <div class="spec-row"><span>Drive</span><strong>H-Bridge + MOSFET</strong></div>
+                    <div class="spec-row"><span>Validation</span><strong>Load Testing</strong></div>
+                </div>
+            </aside>
+
+            <main class="case-content">
+                <div class="panel">
+                    <h3>Problem Statement</h3>
+                    <p>
+                        1 in 7 adults in Singapore suffer from sarcopenia, leading to muscle weakness and difficulty in
+                        standing or walking. Existing aids often lack portability or require significant effort.
+                        This project proposes a portable assistive device that helps users stand up using a scissor-lift
+                        mechanism with ball-bearing linkage, driven by a linear actuator to provide smooth and stable
+                        lifting.
+
+                    </p>
+                </div>
+
+                <div class="feature-image">
+
+                    <img src="images/Prototype.jpg" alt="LIFTOFF Final Prototype">
+
+                    <div class="feature-caption">
+                        <strong>Final Prototype</strong>
+                        Lift sequence and mechanism articulation
+                    </div>
+
+                </div>
+
+                <div class="contribution-grid">
+                    <div class="contribution-card">
+                        <span class="card-number">01</span>
+                        <h3>Hardware</h3>
+                        <ul>
+                            <li>Supported CAD layout refinement</li>
+                            <li>Prepared mechanism visuals</li>
+                            <li>Documented prototype structure</li>
+                        </ul>
+                    </div>
+
+                    <div class="contribution-card">
+                        <span class="card-number">02</span>
+                        <h3>Electronics</h3>
+                        <ul>
+                            <li>Assisted with actuator wiring</li>
+                            <li>Integrated PWM and H-bridge flow</li>
+                            <li>Supported MOSFET switching setup</li>
+                        </ul>
+                    </div>
+
+                    <div class="contribution-card">
+                        <span class="card-number">03</span>
+                        <h3>Testing</h3>
+                        <ul>
+                            <li>Recorded load testing behaviour</li>
+                            <li>Analysed MOSFET failure issues</li>
+                            <li>Supported circuit troubleshooting</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <p class="label">System Flow / Signal Chain</p>
+
+                    <div class="logic-flow">
+
+                        <div class="logic-node start">User On</div>
+
+                        <div class="logic-node forward">Activate Forward</div>
+
+                        <div class="logic-split">
+                            <div class="logic-node stop">Stop Pressing</div>
+                            <div class="logic-node limit">Hit Limit Switch</div>
+                        </div>
+
+                        <div class="logic-node merge">Logic Gate</div>
+
+                        <div class="logic-node reverse">Reverse</div>
+
+                        <div class="logic-node limit">Hit Limit Switch</div>
+
+                        <div class="logic-node kill">Kill Circuit</div>
+
+                        <div class="logic-node base">Press Base Button</div>
+
+                        <div class="logic-node forward">Activate Forward</div>
+
+                    </div>
+                </div>
+
+
+                <div>
+                    <p class="label">Gallery</p>
+
+                    <div class="iteration-grid">
+                        <div class="image-slot image-slot-render">
+                            <img src="images/Final.jpg" alt="LIFTOFF Final Prototype">
+                            <div class="slot-label">
+                                <strong>Final Prototype</strong>
+                                Prestation
+                            </div>
+                        </div>
+
+                        <div class="image-slot image-slot-render">
+                            <video autoplay muted loop playsinline preload="metadata">
+                                <source src="videos/LiftMotion.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="slot-label">
+                                <strong>Electronics Integration</strong>
+                                Fully integrated prototype testing
+                            </div>
+                        </div>
+
+                        <div class="image-slot image-slot-render">
+                            <video autoplay muted loop playsinline preload="metadata">
+                                <source src="videos/liftoffLoop.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="slot-label">
+                                <strong>Weight Testing</strong>
+                                Actuator testing sequence
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <section class="project-case" id="iot">
+        <div class="case-header">
+            <p class="label">Featured Project 02 / Industrial IoT System</p>
+            <h2>Industrial IoT Smart Farming Monitoring System</h2>
+            <p>
+                Create a system that can ease manpower resources and
+                allow close real-time monitoring of medium/large scale vertical farming
+            </p>
+        </div>
+
+        <div class="case-layout">
+            <aside class="sticky-spec">
+                <h3>SYSTEM ARCHITECTURE</h3>
+                <div class="spec-list">
+                    <div class="spec-row"><span>Edge Device</span><strong>Raspberry Pi</strong></div>
+                    <div class="spec-row"><span>Dashboard</span><strong>Node-RED + Tailscale</strong></div>
+                    <div class="spec-row"><span>Long Range</span><strong>LoRaWAN</strong></div>
+                    <div class="spec-row"><span>Messaging</span><strong>MQTT</strong></div>
+                    <div class="spec-row"><span>Industrial Bus</span><strong>Modbus RTU</strong></div>
+                    <div class="spec-row"><span>Output</span><strong>Pump Automation</strong></div>
+                </div>
+            </aside>
+
+            <main class="case-content">
+                <div class="panel">
+                    <h3>Problem Statement</h3>
+                    <p>
+                        The government wants to achieve the 30 by 30 rule in Singapore, which is to be able to produce
+                        30 percent of our nutritional needs by 2030.
+                        However, the current state of Singapore farming has a labour shortage problem and limited land
+                        which requires for the farmers to change the farming from traditional farming to hydroponic
+                        farming.
+                        Hydroponic farming is an agri-tech speed up the growing cycle of plants without compromising
+                        nutritional value, allowing Singapore to increase its production output with existing resources
+                        and without the need of soil.
+                        We can use technology and smart farming to overcome these problems and attract new young gen to
+                        join farming,because it will no longer always be under the sun; have remote access and data
+                        analysis, and be more sustainable.
+
+                    </p>
+                </div>
+
+                <div class="feature-image">
+                    <img src="images/FarmingFinal.jpg" alt="Industrial IoT Smart Farming System">
+
+                    <div class="feature-caption">
+                        <strong>Smart Farming Monitoring System</strong>
+                        Final Prototype with LoRaWAN sensing, MQTT messaging, and Node-RED dashboard
+                    </div>
+                </div>
+
+                <div class="contribution-grid">
+                    <div class="contribution-card">
+                        <span class="card-number">01</span>
+                        <h3>Integration</h3>
+                        <ul>
+                            <li>Connected sensing and dashboard layers</li>
+                            <li>Mapped data flow across sensors and dashboard</li>
+                            <li>Linked monitoring to pump response</li>
+                        </ul>
+                    </div>
+
+                    <div class="contribution-card">
+                        <span class="card-number">02</span>
+                        <h3>Communication</h3>
+                        <ul>
+                            <li>Supported MQTT messaging workflow</li>
+                            <li>Worked with LoRaWAN field sensing</li>
+                            <li>Used Modbus RTU device interfacing</li>
+                        </ul>
+                    </div>
+
+                    <div class="contribution-card">
+                        <span class="card-number">03</span>
+                        <h3>Validation</h3>
+                        <ul>
+                            <li>Checked sensor acquisition behaviour</li>
+                            <li>Verified dashboard data display</li>
+                            <li>Tested automation output response</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-image">
+                    <img src="images/COMMS.jpg" alt="Industrial IoT Smart Farming System">
+
+                    <div class="feature-caption">
+                        <strong>Lorawan Configuration</strong>
+                        Cloud to fetch the data from Lorawan gateway
+                    </div>
+                </div>
+
+
+                <div>
+                    <p class="label">Gallery</p>
+
+                    <div class="project2-gallery">
+                        <div class="image-slot image-slot-render">
+                            <img src="images/FarmingInside.jpg" alt="Smart Farming Prototype">
+                            <div class="slot-label">
+                                <strong>System Prototype</strong>
+                                System setup
+                            </div>
+                        </div>
+
+                        <div class="image-slot image-slot-render">
+                            <img src="images/FarmingDashboard.jpg" alt="Node-RED Dashboard">
+                            <div class="slot-label">
+                                <strong>Node-RED Dashboard</strong>
+                                Live sensor panel and monitoring interface
+                            </div>
+                        </div>
+
+                        <div class="image-slot image-slot-render">
+                            <img src="images/LoraWan.jpg" alt="IoT System Flow">
+                            <div class="slot-label">
+                                <strong>Lorawan</strong>
+                                Connection between Wise 4610/ S617T and XY-MD02
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <section id="artifacts">
+        <p class="label">Events</p>
+        <h2>Competitions + Certificates</h2>
+
+        <div>
+            <p class="label">National IIot Competition</p>
+
+            <div class="project3-gallery">
+                <div class="image-slot image-slot-render">
+                    <img src="images/Competition.jpg" alt="Smart Farming Prototype">
+                    <div class="slot-label">
+                        <strong>National IIot Competition</strong>
+                        Group Photo
+                    </div>
+                </div>
+
+                <div class="image-slot image-slot-render">
+                    <img src="images/Certificate.jpg" alt="Node-RED Dashboard">
+                    <div class="slot-label">
+                        <strong>National IIot Competition</strong>
+                        Certificate of Achievement
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div>
+            <p class="label">Conventions</p>
+
+            <div class="project3-gallery">
+                <div class="image-slot image-slot-render">
+                    <img src="images/malaysia.jpg" alt="malaysia convention">
+                    <div class="slot-label">
+                        <strong>Advantech Convention</strong>
+                    </div>
+                </div>
+
+                <div class="image-slot image-slot-render">
+                    <img src="images/Convention.jpg" alt="worldskill convention">
+                    <div class="slot-label">
+                        <strong>Worldskill Convention</strong>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div>
+            <p class="label">Diploma</p>
+
+            <div class="image-slot image-slot-render certificate-card">
+                <img src="images/DCPE.jpg" alt="Diploma in Computer Engineering">
+                <div class="slot-label">
+                    <strong>Diploma in Computer Engineering</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-grid">
+            <div>
+                <p class="label">Contact</p>
+                <h2>Currently seeking R&D / Embedded Systems internships.</h2>
+            </div>
+
+            <div class="contact-card">
+                <p>
+                    Open to roles involving embedded systems, hardware engineering, robotics, mechatronics,
+                    electromechanical prototyping, and Industrial IoT.
+                </p>
+
+                <div class="contact-buttons">
+                    <a href="Resume.pdf" class="btn btn-primary" target="_blank">PDF RESUME</a>
+                    <a href="https://www.linkedin.com/in/thein-mwae-than-tha-7b82232ab"
+                        class="btn btn-secondary">LINKEDIN</a>
+                    <a href="mailto:theinmwae1234@gmail.com" class="btn btn-secondary">EMAIL</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 THEIN MWAE THAN THA — SYSTEMS & HARDWARE ENGINEERING PORTFOLIO
+    </footer>
+
+    <script>
+        const animatedItems = document.querySelectorAll(
+            ".panel, .skill-card, .deep-card, .image-slot, .protocol, .dashboard, .artifact, .contact-card, .wide-visual, .contribution-card, .flow-node"
+        );
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, { threshold: 0.12 });
+
+        animatedItems.forEach(item => {
+            item.style.opacity = "0";
+            item.style.transform = "translateY(22px)";
+            item.style.transition = "0.55s ease";
+            observer.observe(item);
+        });
+    </script>
+
+</body>
+
+</html>
